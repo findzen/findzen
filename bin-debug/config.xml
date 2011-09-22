@@ -1,0 +1,2758 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!-- deviceFont must be one of the following: _sans, _serif, _typewriter -->
+	<typography embed="true" deviceFont="_sans"/>
+	
+	<MainView>
+		<args>
+			<MovieClip linkage="container.view"/>
+		</args>
+		
+		<states>
+			<State name="intro"/>
+			<State name="compare"/>
+			<State name="data"/>
+			<State name="australia"/>
+			<State name="austria"/>
+			<State name="belgium"/>
+			<State name="brazil"/>
+			<State name="canada"/>
+			<State name="china"/>
+			<State name="denmark"/>
+			<State name="france"/>
+			<State name="germany"/>
+			<State name="india"/>
+			<State name="italy"/>
+			<State name="japan"/>
+			<State name="mexico"/>
+			<State name="netherlands"/>
+			<State name="norway"/>
+			<State name="poland"/>
+			<State name="portugal"/>
+			<State name="russia"/>
+			<State name="skorea"/>
+			<State name="spain"/>
+			<State name="sweden"/>
+			<State name="uk"/>
+			<State name="usa"/>
+		</states>
+	
+		<components>
+			<ControlBar>
+				<args>
+					<MovieClip instance="controls">
+						<TextField instance="browse_country_txt">
+							<htmlText><![CDATA[BROWSE BY COUNTRY]]></htmlText>
+						</TextField>
+						<TextField instance="share_txt">
+							<htmlText><![CDATA[SHARE]]></htmlText>
+						</TextField>
+					</MovieClip>
+				</args>
+				
+				<components>
+					<View name="topics">
+						<args>
+							<MovieClip instance="topicFilter_mc">
+								<TextField instance="browse_topic_txt">
+									<htmlText><![CDATA[BROWSE BY TOPIC]]></htmlText>
+								</TextField>
+								<TextField instance="filters_txt">
+									<htmlText><![CDATA[DISPLAY FILTERS]]></htmlText>
+								</TextField>
+								<TextField instance="rank_txt">
+									<htmlText><![CDATA[RANK]]></htmlText>
+								</TextField>
+								<TextField instance="sex_txt">
+									<htmlText><![CDATA[SEX]]></htmlText>
+								</TextField>
+								<TextField instance="age_txt">
+									<htmlText><![CDATA[AGE]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</View>
+					<Button name="facebook" clickedRoute="social.global::facebook">
+						<args>
+							<MovieClip instance="facebook_mc"/>
+						</args>
+					</Button>
+					<Button name="twitter" clickedRoute="social.global::twitter">
+						<args>
+							<MovieClip instance="twitter_mc"/>
+						</args>
+					</Button>
+				</components>
+			</ControlBar>
+			
+			<Image url="images/title.png" autoLoad="true">
+				<args>
+					<MovieClip instance="lockup"/>
+				</args>
+			</Image>
+			
+			<View name="intro" includeIn="intro" useFrameLabels="true">
+				<args>
+					<MovieClip instance="intro">
+						<MovieClip instance="text">
+							<MovieClip instance="text1">
+								<TextField instance="txt">
+									<htmlText><![CDATA[We asked 1,000 people...]]></htmlText>
+								</TextField>
+							</MovieClip>
+							<MovieClip instance="text2">
+								<TextField instance="txt">
+									<htmlText><![CDATA[in 23 different countries]]></htmlText>
+								</TextField>
+							</MovieClip>
+							<MovieClip instance="text3">
+								<TextField instance="txt">
+									<htmlText><![CDATA[how many sexual partners they have had.]]></htmlText>
+								</TextField>
+							</MovieClip>
+							<MovieClip instance="text4">
+								<TextField instance="txt">
+									<htmlText><![CDATA[Find out all the dirty details here...]]></htmlText>
+								</TextField>
+							</MovieClip>
+							<MovieClip instance="text5">
+								<TextField instance="txt">
+									<htmlText><![CDATA[and then see how you compare!]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</MovieClip>
+					</MovieClip>
+				</args>
+				<components>
+					<Button name="skip">
+						<args>
+							<MovieClip instance="skipButton">
+								<TextField instance="skip_txt">
+									<htmlText><![CDATA[SKIP INTRO]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+				</components>
+			</View>
+			
+			<Button name="watch">
+				<args>
+					<MovieClip instance="watchButton">
+						<TextField instance="watch_txt">
+							<htmlText><![CDATA[WATCH INTRO]]></htmlText>
+						</TextField>
+					</MovieClip>
+				</args>
+			</Button>
+
+			<View name="compare" useFrameLabels="true" includeIn="data">
+				<args>
+					<MovieClip instance="compareStats">
+						<MovieClip instance="txt_mc">
+							<TextField instance="compare_txt">
+								<htmlText><![CDATA[COMPARE YOUR STATS]]></htmlText>
+							</TextField>
+							<TextField instance="answer_txt">
+								<htmlText><![CDATA[Every nation has their own sexual personality. Ever wonder how you stack up against others around the world? Take this quiz and find out!]]></htmlText>
+							</TextField>
+						</MovieClip>
+					</MovieClip>
+				</args>
+				<components>
+					<Button name="go">
+						<args>
+							<MovieClip instance="goButton">
+								<TextField instance="go_txt">
+									<htmlText><![CDATA[GO]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+				</components>
+			</View>
+			
+			<Quiz useFrameLabels="true" includeIn="compare">
+				<args>
+					<MovieClip instance="quiz"/>
+				</args>
+				<states>
+					<State name="question"/>
+					<State name="answer"/>
+				</states>
+				<components>
+					<Button name="close">
+						<args>
+							<MovieClip instance="closeButton"/>
+						</args>
+					</Button>
+					<View>
+						<args>
+							<MovieClip instance="share">
+								<TextField instance="share_txt">
+									<htmlText><![CDATA[SHARE]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="facebook"/>
+								</args>
+							</Button>
+							<Button>
+								<args>
+									<MovieClip instance="twitter"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<QuizQuestion includeIn="question">
+						<args>
+							<MovieClip instance="question"/>
+						</args>
+						<components>
+							<Button name="skip">
+								<args>
+									<MovieClip instance="skipButton">
+										<TextField instance="skip_txt">
+											<htmlText><![CDATA[SKIP QUESTION]]></htmlText>
+										</TextField>
+									</MovieClip>
+								</args>
+							</Button>
+							<Button name="submit">
+								<args>
+									<MovieClip instance="submitButton">
+										<TextField instance="submit_txt">
+											<htmlText><![CDATA[SUBMIT]]></htmlText>
+										</TextField>
+									</MovieClip>
+								</args>
+							</Button>
+						</components>
+					</QuizQuestion>
+					<QuizAnswer includeIn="answer">
+						<args>
+							<MovieClip instance="answer">
+								<TextField instance="answer_txt"/>
+							</MovieClip>
+						</args>
+						<components>
+							<Button name="next">
+								<args>
+									<MovieClip instance="nextQuestionButton">
+										<TextField instance="submit_txt">
+											<htmlText><![CDATA[NEXT QUESTION]]></htmlText>
+										</TextField>
+									</MovieClip>
+								</args>
+							</Button>
+						</components>
+					</QuizAnswer>
+				</components>
+			</Quiz>
+		
+			<!-- Map -->
+			<Map includeIn="intro,data,compare">
+				<args>
+					<MovieClip instance="map"/>
+				</args>
+				<components>
+					<!-- Country buttons -->
+					<View name="australia">
+						<args>
+							<MovieClip instance="australia"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="austria">
+						<args>
+							<MovieClip instance="austria"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="belgium">
+						<args>
+							<MovieClip instance="belgium"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="brazil">
+						<args>
+							<MovieClip instance="brazil"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="canada">
+						<args>
+							<MovieClip instance="canada"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="china">
+						<args>
+							<MovieClip instance="china"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="denmark">
+						<args>
+							<MovieClip instance="denmark"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="france">
+						<args>
+							<MovieClip instance="france"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="germany">
+						<args>
+							<MovieClip instance="germany"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="india">
+						<args>
+							<MovieClip instance="india"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="italy">
+						<args>
+							<MovieClip instance="italy"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="japan">
+						<args>
+							<MovieClip instance="japan"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="mexico">
+						<args>
+							<MovieClip instance="mexico"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="netherlands">
+						<args>
+							<MovieClip instance="netherlands"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="norway">
+						<args>
+							<MovieClip instance="norway"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="poland">
+						<args>
+							<MovieClip instance="poland"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="portugal">
+						<args>
+							<MovieClip instance="portugal"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="russia">
+						<args>
+							<MovieClip instance="russia"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="skorea">
+						<args>
+							<MovieClip instance="skorea"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="spain">
+						<args>
+							<MovieClip instance="spain"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="sweden">
+						<args>
+							<MovieClip instance="sweden"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="uk">
+						<args>
+							<MovieClip instance="uk"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<View name="usa">
+						<args>
+							<MovieClip instance="usa"/>
+						</args>
+						<components>
+							<Button>
+								<args>
+									<MovieClip instance="button_mc"/>
+								</args>
+							</Button>
+						</components>
+					</View>
+					<!-- /Country buttons -->
+					<!-- Country pins -->
+					<Country name="australia_over">
+						<args>
+							<MovieClip instance="australia_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="austria_over">
+						<args>
+							<MovieClip instance="austria_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="belgium_over">
+						<args>
+							<MovieClip instance="belgium_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="brazil_over">
+						<args>
+							<MovieClip instance="brazil_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="canada_over">
+						<args>
+							<MovieClip instance="canada_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="china_over">
+						<args>
+							<MovieClip instance="china_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="denmark_over">
+						<args>
+							<MovieClip instance="denmark_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="france_over">
+						<args>
+							<MovieClip instance="france_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="germany_over">
+						<args>
+							<MovieClip instance="germany_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="india_over">
+						<args>
+							<MovieClip instance="india_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="italy_over">
+						<args>
+							<MovieClip instance="italy_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="japan_over">
+						<args>
+							<MovieClip instance="japan_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="mexico_over">
+						<args>
+							<MovieClip instance="mexico_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="netherlands_over">
+						<args>
+							<MovieClip instance="netherlands_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="norway_over">
+						<args>
+							<MovieClip instance="norway_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="poland_over">
+						<args>
+							<MovieClip instance="poland_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="portugal_over">
+						<args>
+							<MovieClip instance="portugal_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="russia_over">
+						<args>
+							<MovieClip instance="russia_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="skorea_over">
+						<args>
+							<MovieClip instance="skorea_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="spain_over">
+						<args>
+							<MovieClip instance="spain_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="sweden_over">
+						<args>
+							<MovieClip instance="sweden_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="uk_over">
+						<args>
+							<MovieClip instance="uk_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<Country name="usa_over">
+						<args>
+							<MovieClip instance="usa_over"/>
+						</args>
+						<components>
+							<View useFrameLabels="true">
+								<args>
+									<MovieClip instance="value_mc">
+										<MovieClip instance="pin_number">
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+							<View useFrameLabels="true" includeIn="{false}">
+								<args>
+									<MovieClip instance="valueOver_mc">
+										<MovieClip instance="value_mc">
+											<TextField instance="name_txt"/>
+											<TextField instance="value_txt"/>
+										</MovieClip>
+									</MovieClip>
+								</args>
+							</View>
+						</components>
+					</Country>
+					<!-- /Country pins -->
+				</components>
+			</Map>
+			<!-- /Map -->
+		
+			<!-- Country detail -->
+			<CountryDetail name="australia" includeIn="australia" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.australia"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="austria" includeIn="austria" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.austria"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="belgium" includeIn="belgium" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.belgium"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="brazil" includeIn="brazil" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.brazil"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="canada" includeIn="canada" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.canada"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="china" includeIn="china" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.china"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="denmark" includeIn="denmark" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.denmark"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="france" includeIn="france" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.france"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="germany" includeIn="germany" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.germany"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="india" includeIn="india" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.india"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="italy" includeIn="italy" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.italy"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="japan" includeIn="japan" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.japan"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="mexico" includeIn="mexico" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.mexico"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="netherlands" includeIn="netherlands" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.netherlands"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="norway" includeIn="norway" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.norway"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="poland" includeIn="poland" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.poland"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="portugal" includeIn="portugal" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.portugal"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="russia" includeIn="russia" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.russia"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="skorea" includeIn="skorea" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.skorea"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="spain" includeIn="spain" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.spain"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="sweden" includeIn="sweden" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.sweden"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="uk" includeIn="uk" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.uk"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<CountryDetail name="usa" includeIn="usa" useFrameLabels="true">
+				<args>
+					<MovieClip linkage="container.detail.usa"/>
+				</args>
+				<components>
+					<Button clickedRoute="navigation.section::map">
+						<args>
+							<MovieClip instance="back_mc">
+								<TextField instance="back_txt">
+									<htmlText><![CDATA[BACK]]></htmlText>
+								</TextField>
+							</MovieClip>
+						</args>
+					</Button>
+					<View name="name">
+						<args>
+							<MovieClip instance="country_name_mc">
+								<TextField instance="name_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="average">
+						<args>
+							<MovieClip instance="average_number_mc">
+								<TextField instance="average_txt"/>
+								<TextField instance="number_txt"/>
+							</MovieClip>
+						</args>
+					</View>
+					<View name="topics" useFrameLabels="true">
+						<args>
+							<MovieClip instance="topics"/>
+						</args>
+						<components>
+							<ResultDisplay name="topic0">
+								<args>
+									<MovieClip instance="topic0_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic1">
+								<args>
+									<MovieClip instance="topic1_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic2">
+								<args>
+									<MovieClip instance="topic2_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+							<ResultDisplay name="topic3">
+								<args>
+									<MovieClip instance="topic3_mc">
+										<TextField instance="value_txt"/>
+										<TextField instance="topic_txt"/>
+									</MovieClip>
+								</args>
+							</ResultDisplay>
+						</components>
+					</View>
+				</components>
+			</CountryDetail>
+			<!-- /Country detail -->
+		</components>
+	</MainView>
+</config>

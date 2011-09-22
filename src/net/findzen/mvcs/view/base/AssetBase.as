@@ -1,6 +1,5 @@
 package net.findzen.mvcs.view.base
 {
-    import com.bigspaceship.display.Standard;
     import com.greensock.*;
     import com.greensock.events.LoaderEvent;
     import com.greensock.loading.LoaderStatus;
