@@ -10,8 +10,10 @@
 	<map node="TextField" class="flash.text.TextField"/>
 	
 	<!-- Components -->
+	<map node="View" class="net.findzen.display.View"/>
+	<map node="AnimatedView" class="net.findzen.display.AnimatedView"/>
+	<!--
 	<map node="MainView" class="app.view.MainView"/>
-	<map node="View" class="net.findzen.mvcs.view.View"/>
 	<map node="ControlBar" class="app.view.ControlBar"/>
 	<map node="Map" class="app.view.Map"/>
 	<map node="Country" class="app.view.Country"/>
@@ -20,10 +22,11 @@
 	<map node="Quiz" class="app.view.Quiz"/>
 	<map node="QuizQuestion" class="app.view.QuizQuestion"/>
 	<map node="QuizAnswer" class="app.view.QuizAnswer"/>
-	<map node="State" class="net.findzen.mvcs.view.data.ViewState"/>
-	<map node="Component" class="net.findzen.mvcs.view.Component"/>
-	<map node="Button" class="net.findzen.mvcs.view.Button"/>
-	<map node="Image" class="net.findzen.mvcs.view.ImageAsset"/>
-	<map node="SWF" class="net.findzen.mvcs.view.SWFAsset"/>
-	<map node="Video" class="net.findzen.mvcs.view.VideoAsset"/>
+	<map node="State" class="net.findzen.display.data.ViewState"/>
+	<map node="Component" class="net.findzen.display.Component"/>
+	<map node="Button" class="net.findzen.display.Button"/>
+	<map node="Image" class="net.findzen.display.ImageAsset"/>
+	<map node="SWF" class="net.findzen.display.SWFAsset"/>
+	<map node="Video" class="net.findzen.display.VideoAsset"/>
+	-->
 </config>

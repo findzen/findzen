@@ -1,23 +1,23 @@
 package app.controller
 {
     import app.signals.BuildViewComplete;
-    import app.view.*;
 
     import flash.display.DisplayObject;
     import flash.display.DisplayObjectContainer;
+    import flash.display.InteractiveObject;
     import flash.display.MovieClip;
     import flash.text.Font;
     import flash.text.TextField;
     import flash.text.TextFormat;
     import flash.utils.getQualifiedClassName;
 
-    import net.findzen.mvcs.service.Config;
-    import net.findzen.mvcs.view.Button;
-    import net.findzen.mvcs.view.DisplayFactory;
-    import net.findzen.mvcs.view.View;
-    import net.findzen.mvcs.view.core.IComponent;
-    import net.findzen.mvcs.view.core.IFactory;
-    import net.findzen.mvcs.view.core.IView;
+    import net.findzen.display.Button;
+    import net.findzen.display.DisplayFactory;
+    import net.findzen.display.View;
+    import net.findzen.display.core.IComponent;
+    import net.findzen.display.core.IFactory;
+    import net.findzen.display.core.IView;
+    import net.findzen.utils.Config;
     import net.findzen.utils.FontManager;
     import net.findzen.utils.Inspector;
     import net.findzen.utils.Lib;
@@ -58,6 +58,11 @@ package app.controller
              mediatorMap.mapView(Button, ComponentMediator, IComponent);
              mediatorMap.mapView(Quiz, QuizMediator);*/
 
+            var view:IView = _create(config.xml.child('AnimatedView')[0], config.lib) as IView;
+
+            this.contextView.addChild(view as DisplayObject);
+            view.show();
+
             _buildView();
         }
 
@@ -78,6 +83,7 @@ package app.controller
         protected function _create($node:XML, $container:DisplayObjectContainer = null):Object
         {
             Log.info(this, 'Create', $container);
+            trace($node);
 
             var classRef:Class = config.nodeMap.getClass($node.name());
 
@@ -87,14 +93,12 @@ package app.controller
                 return null;
             }
 
-            var args:Array = _getArgs(classRef, $node, $container);
-            var instance:Object = _getInstance($node, classRef, $container, args);
+            var instance:Object = _getInstance($node, classRef, $container);
 
             if(!instance)
                 return null;
 
-            var container:DisplayObjectContainer = instance is DisplayObjectContainer ? instance as DisplayObjectContainer :
-                instance is IComponent ? IComponent(instance).container : $container;
+            var container:DisplayObjectContainer = instance is DisplayObjectContainer ? instance as DisplayObjectContainer : $container;
 
             _setProperties($node, instance, _getProperties(classRef), container);
 
@@ -122,7 +126,31 @@ package app.controller
             return instance;
         }
 
-        protected function _getInstance($xml:XML, $class:Class, $container:DisplayObjectContainer = null, $args:Array = null):Object
+        protected function _findChild($name:String, $container:DisplayObjectContainer):DisplayObject
+        {
+            if($container.getChildByName($name))
+                return $container[$name]; // well that was easy... nothing more to do here
+
+            // must not be a direct descendent.. keep searching
+            var instance:DisplayObject;
+            var child:DisplayObject;
+
+            for(var i:uint = 0; i < $container.numChildren; i++)
+            {
+                child = $container.getChildAt(i);
+
+                if(child is DisplayObjectContainer)
+                    instance = _findChild($name, child as DisplayObjectContainer);
+
+                if(instance)
+                    return instance;
+            }
+
+            // didn't find anything.
+            return null;
+        }
+
+        protected function _getInstance($xml:XML, $class:Class, $container:DisplayObjectContainer = null):Object
         {
             Log.info(this, 'Get instance', $class, $container);
 
@@ -130,7 +158,7 @@ package app.controller
             var instanceName:String = _getXMLMatch($xml, 'instance');
             var linkage:String = _getXMLMatch($xml, 'linkage');
 
-            Log.info(this, 'name:', instanceName, 'linkage:', linkage, 'args:', $args);
+            Log.info(this, 'name:', instanceName, 'linkage:', linkage);
 
             if(linkage)
             {
@@ -147,74 +175,33 @@ package app.controller
             }
             else if(instanceName)
             {
-                if($container && $container.getChildByName(instanceName) is $class)
+                if($container)
                 {
-                    // get instance from container
-                    instance = $container[instanceName];
+                    instance = _findChild(instanceName, $container);
 
-                    // remove attribute to prevent error thrown when attempting to set name of timeline-placed display objects
-                    delete $xml.@name;
-
-                    Log.info(this, 'Found instance', instance);
+                    if(!instance)
+                        Log.error(this, 'instance name', instanceName, 'not found in container', $container);
 
                     return instance;
                 }
                 else
                 {
-                    Log.error(this, 'instance name', instanceName, 'not found in container', $container);
                     return null;
                 }
             }
 
-            instance = _createInstance($class, $args);
+            instance = new $class();
 
             if(!instance)
+            {
+                Log.error(this, 'Failed to create instance of', $class);
                 return null;
+            }
 
             Log.info(this, 'Created instance', instance);
 
             if($container && instance is DisplayObject)
                 $container.addChild(instance as DisplayObject);
-
-            return instance;
-        }
-
-        protected function _createInstance($class:Class, $args:Array = null):Object
-        {
-            var instance:Object;
-
-            // create new instance of class
-            try
-            {
-                if($args && $args.length)
-                {
-                    switch($args.length)
-                    {
-                        case 1:
-                            instance = new $class($args[0]);
-                            break;
-
-                        case 2:
-                            instance = new $class($args[0], $args[1], $args[3]);
-                            break;
-
-                        case 3:
-                            instance = new $class($args[0], $args[1], $args[3], $args[4]);
-                            break;
-
-                        default:
-                            Log.error(this, 'Constructor args length', $args.length, 'is unsupported');
-                    }
-                }
-                else
-                {
-                    instance = new $class();
-                }
-            }
-            catch(e:Error)
-            {
-                Log.error(this, 'Failed to create instance of', $class, e.message);
-            }
 
             return instance;
         }
@@ -231,44 +218,15 @@ package app.controller
             return _properties[$class] ||= Inspector.getProperties($class);
         }
 
-        protected function _getArgs($class:Class, $xml:XML, $container:DisplayObjectContainer = null):Array
-        {
-            var constructorList:XMLList = $xml.args;
-
-            if(!constructorList || !constructorList.length())
-                return null;
-
-            var constructorXML:XML = constructorList[0];
-            var argsList:Array = _args[$class] ||= Inspector.getConstructorArgs($class);
-            var args:Array = [];
-            var xmlMatch:XML;
-            var fcqn:String;
-            var i:int;
-
-            for(i = 0; i < argsList.length; i++)
-            {
-                fcqn = getQualifiedClassName(argsList[i]);
-
-                xmlMatch = _getXMLMatch(constructorXML, fcqn.split('::')[1]);
-
-                if(!xmlMatch || !xmlMatch.length())
-                {
-                    Log.error(this, 'No xml match found!');
-                    continue;
-                }
-
-                args.push(_getValue(xmlMatch, argsList[i], $container));
-            }
-
-            return args;
-        }
-
         protected function _setProperties($xml:XML, $instance:Object, $properties:Object, $container:DisplayObjectContainer = null):void
         {
             var container:DisplayObjectContainer = $instance is DisplayObjectContainer ? $instance as DisplayObjectContainer : $container;
             var propName:String;
             var xmlMatch:XML;
             var val:*;
+
+            /*if($instance is IComponent && $xml.@skinClass.length())
+                Lib.*/
 
             for(propName in $properties)
             {
@@ -326,38 +284,28 @@ package app.controller
 
                 case XMLList:
 
-                break;*/
+                break;
+
+                case MovieClip:
+                    trace('MC');
+                    trace($xml.children()[0].toXMLString());
+                    return $xml.children().length() ? _create($xml.children()[0], $container) : null;
+                    break;*/
 
                 default:
-                    var instance:Object = _create($xml, $container);
+                    trace('\n======\n DEFAULT \n======\n');
+
+                    if(!$xml.children().length())
+                        return null;
+
+                    var instance:Object = _create($xml.children()[0], $container);
 
                     if(!instance)
                         return null;
 
-                    var container:DisplayObjectContainer = instance is DisplayObjectContainer ? instance as DisplayObjectContainer :
-                        instance is IComponent ? IComponent(instance).container : $container;
+                    var container:DisplayObjectContainer = instance is DisplayObjectContainer ? instance as DisplayObjectContainer : $container;
 
                     _setProperties($xml, instance, _getProperties($propType), container);
-
-                    // if this is a DisplayObjectContainer and there are children nodes, parse children
-                    /*if(instance is DisplayObjectContainer && $xml.children().length())
-                    {
-
-                        var node:XML;
-                        var child:Object;
-
-                        for each(node in $xml.children())
-                        {
-                            trace(instance, node.toXMLString());
-                            child = _create(node, instance as DisplayObjectContainer);
-
-                            if(child is TextField && !FontManager.embedFonts)
-                            {
-                                TextField(child).defaultTextFormat = new TextFormat(FontManager.deviceFont);
-                                TextField(child).embedFonts = FontManager.embedFonts;
-                            }
-                        }
-                    }*/
 
                     return instance;
             }

@@ -22,14 +22,20 @@ package app.controller
     import flash.events.*;
     import flash.net.*;
 
-    import net.findzen.mvcs.service.Config;
+    import net.findzen.display.core.IProgressDisplay;
+    import net.findzen.utils.Config;
+    import net.findzen.utils.FlashVars;
     import net.findzen.utils.Log;
+    import net.findzen.utils.XMLUtility;
     import net.findzen.utils.deepTrace;
 
     import org.robotlegs.mvcs.SignalCommand;
 
     public class LoadConfigCommand extends SignalCommand
     {
+        /*[Inject]
+        public var preloader:IProgressDisplay;*/
+
         [Inject]
         public var model:AppModel;
 
@@ -51,13 +57,23 @@ package app.controller
         {
             Log.status(this, 'execute');
 
-        /*_preloader = new Preloader();
-        _preloader.x = 500 - _preloader.width / 2;
-        _preloader.y = 350 - _preloader.height / 2;
-        this.contextView.addChild(_preloader);*/
+            /*_preloader = new Preloader();
+            _preloader.x = 500 - _preloader.width / 2;
+            _preloader.y = 350 - _preloader.height / 2;
+            this.contextView.addChild(_preloader);*/
 
-        /*_config = new Config();
-        _config.map = XML(new ConfigData.MAP_XML());
+            _config = new Config();
+            _config.map = XML(new ConfigData.MAP_XML());
+
+            _getFlashVars();
+
+            _loader = new LoaderMax({ onProgress: _onLoaderProgress, onComplete: _onLoadComplete, onError: _onLoadError });
+            _loader.append(new SWFLoader(ConfigData.LIB_SWF_PATH, { onComplete: _onLibLoaded }));
+            _loader.append(new XMLLoader(ConfigData.STRUCTURE_XML_PATH, { onComplete: _onContentLoaded }));
+            _loader.append(new XMLLoader(ConfigData.COPY_XML_PATH, { onComplete: _onConfigLoaded }));
+
+            _loader.load();
+        /*
 
         // build this out...
         operatorConfigLoaded.dispatch();
@@ -69,12 +85,7 @@ package app.controller
         Log.info(this, 'config path:', _configPath);
         Log.info(this, 'content path:', _contentPath);
 
-        _loader = new LoaderMax({ onProgress: _onLoaderProgress, onComplete: _onLoadComplete, onError: _onLoadError });
-        _loader.append(new SWFLoader(ConfigData.LIB_SWF_PATH, { onComplete: _onLibLoaded }));
-        _loader.append(new XMLLoader(_contentPath, { onComplete: _onContentLoaded }));
-        _loader.append(new XMLLoader(_configPath, { onComplete: _onConfigLoaded }));
-
-        _loader.load();*/
+        */
 
             // tracking
         /*var params:Object = this.contextView.stage.loaderInfo.parameters;
@@ -88,6 +99,13 @@ package app.controller
             Log.error(this, 'Missing tracker value(s)');*/
         }
 
+        protected function _getFlashVars():void
+        {
+            // todo
+            ConfigData.assetsURL = FlashVars.getValue(ConfigData.ASSET_URL_FLASH_VAR, this.contextView.stage);
+
+        }
+
         protected function _onLoaderProgress($e:LoaderEvent):void
         {
             var progress:int = Math.ceil(Number($e.target.progress) * 100);
@@ -98,7 +116,7 @@ package app.controller
         {
             Log.status(this, 'Config XML loaded', $e.target);
 
-            _config.xml = LoaderMax.getContent(_configPath);
+            _config.xml = LoaderMax.getContent(ConfigData.STRUCTURE_XML_PATH);
             _checkComplete();
         }
 
@@ -106,8 +124,8 @@ package app.controller
         {
             Log.status(this, 'Content XML loaded', $e.target);
 
-            var xml:XML = LoaderMax.getContent(_contentPath);
-            model.data = xml..child('data')[0];
+            var xml:XML = LoaderMax.getContent(ConfigData.COPY_XML_PATH);
+            //model.data = xml..child('data')[0];
         }
 
         protected function _onLibLoaded($e:LoaderEvent):void
@@ -120,12 +138,15 @@ package app.controller
         protected function _checkComplete():void
         {
             if(_config.lib && _config.xml)
+            {
+                Log.status(this, 'load complete');
                 viewConfigLoaded.dispatch(_config);
+            }
         }
 
         protected function _onLoadComplete($e:LoaderEvent):void
         {
-            Log.status(this, 'load complete', $e.target);
+            Log.status(this, 'cleaning');
             _clean();
         }
 

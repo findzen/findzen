@@ -34,7 +34,7 @@ package app.controller
             SWFAddress.addEventListener(SWFAddressEvent.CHANGE, onChange, false, 0, true);
 
             if(SWFAddress.getValue() == '/')
-                this.state = new AddressState([ 'intro' ]);
+                this.state = new AddressState([ 'test' ]);
         }
 
         public function set tracker($tracker:Object):void

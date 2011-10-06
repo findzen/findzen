@@ -1,6 +1,6 @@
 package app.controller
 {
-    import net.findzen.mvcs.view.core.IView;
+    import net.findzen.display.core.IView;
     import net.findzen.utils.Log;
 
     import org.robotlegs.mvcs.Command;

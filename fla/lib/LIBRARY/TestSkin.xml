@@ -1,0 +1,270 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="TestSkin" itemID="4e8c923d-00000a10" linkageExportForAS="true" linkageClassName="TestSkin" lastModified="1317943531" lastUniqueIdentifier="8">
+  <timeline>
+    <DOMTimeline name="TestSkin" currentFrame="25">
+      <layers>
+        <DOMLayer name="// LABELS" color="#808080" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="9" name="INIT" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" duration="10" name="IN_START" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" duration="10" name="IN" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="29" duration="10" name="OUT_START" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="11" name="OUT" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 7" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="50" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="asdf" width="205" height="30">
+                  <matrix>
+                    <Matrix tx="111" ty="109.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>???????</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" size="14" bitmapSize="280" face="Futura-Bold" fillColor="#006600"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMSymbolInstance libraryItemName="Symbol 4" selected="true" centerPoint3DX="213.5" centerPoint3DY="258.95">
+                  <matrix>
+                    <Matrix tx="109" ty="241.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="104.5" y="17"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" duration="9" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="Button" name="button1" centerPoint3DX="62" centerPoint3DY="29" uniqueID="2">
+                  <matrix>
+                    <Matrix tx="12" ty="18"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="50" y="11"/>
+                  </transformationPoint>
+                  <dataBindingXML><![CDATA[<component metaDataFetched='true' schemaUrl='' schemaOperation='' sceneRootLabel='TestSkin' oldCopiedComponentPath='2'>
+</component>
+]]></dataBindingXML>
+                  <parametersAsXML><![CDATA[   <property id="emphasized">
+      <Inspectable name="emphasized" variable="emphasized" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="enabled">
+      <Inspectable name="enabled" variable="enabled" category="" verbose="1" defaultValue="true" type="Boolean"/>
+   </property>
+   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="Label" type="String"/>
+   </property>
+   <property id="labelPlacement">
+      <Inspectable name="labelPlacement" variable="labelPlacement" category="" verbose="0" defaultValue="right" enumeration="left,right,top,bottom" type="List"/>
+   </property>
+   <property id="selected">
+      <Inspectable name="selected" variable="selected" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="toggle">
+      <Inspectable name="toggle" variable="toggle" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="visible">
+      <Inspectable name="visible" variable="visible" category="" verbose="1" defaultValue="true" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Label" name="text1" centerPoint3DX="92" centerPoint3DY="77" uniqueID="4">
+                  <matrix>
+                    <Matrix tx="41.9" ty="66"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="50.1" y="11"/>
+                  </transformationPoint>
+                  <dataBindingXML><![CDATA[<component metaDataFetched='true' schemaUrl='' schemaOperation='' sceneRootLabel='TestSkin' oldCopiedComponentPath='4'>
+</component>
+]]></dataBindingXML>
+                  <parametersAsXML><![CDATA[   <property id="autoSize">
+      <Inspectable name="autoSize" variable="autoSize" category="" verbose="0" defaultValue="none" enumeration="left,center,right,none" type="List"/>
+   </property>
+   <property id="condenseWhite">
+      <Inspectable name="condenseWhite" variable="condenseWhite" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="enabled">
+      <Inspectable name="enabled" variable="enabled" category="" verbose="1" defaultValue="true" type="Boolean"/>
+   </property>
+   <property id="htmlText">
+      <Inspectable name="htmlText" variable="htmlText" category="" verbose="0" defaultValue="" type="String"/>
+   </property>
+   <property id="selectable">
+      <Inspectable name="selectable" variable="selectable" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="text">
+      <Inspectable name="text" variable="text" category="" verbose="0" defaultValue="Label" type="String"/>
+   </property>
+   <property id="visible">
+      <Inspectable name="visible" variable="visible" category="" verbose="1" defaultValue="true" type="Boolean"/>
+   </property>
+   <property id="wordWrap">
+      <Inspectable name="wordWrap" variable="wordWrap" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" duration="41" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="Button" name="button1" centerPoint3DX="62" centerPoint3DY="29" uniqueID="2">
+                  <matrix>
+                    <Matrix tx="12" ty="18"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="50" y="11"/>
+                  </transformationPoint>
+                  <dataBindingXML><![CDATA[<component metaDataFetched='true' schemaUrl='' schemaOperation='' sceneRootLabel='TestSkin' oldCopiedComponentPath='2'>
+</component>
+]]></dataBindingXML>
+                  <parametersAsXML><![CDATA[   <property id="emphasized">
+      <Inspectable name="emphasized" variable="emphasized" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="enabled">
+      <Inspectable name="enabled" variable="enabled" category="" verbose="1" defaultValue="true" type="Boolean"/>
+   </property>
+   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="Label" type="String"/>
+   </property>
+   <property id="labelPlacement">
+      <Inspectable name="labelPlacement" variable="labelPlacement" category="" verbose="0" defaultValue="right" enumeration="left,right,top,bottom" type="List"/>
+   </property>
+   <property id="selected">
+      <Inspectable name="selected" variable="selected" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="toggle">
+      <Inspectable name="toggle" variable="toggle" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="visible">
+      <Inspectable name="visible" variable="visible" category="" verbose="1" defaultValue="true" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Label" name="text1" centerPoint3DX="92" centerPoint3DY="77" uniqueID="4">
+                  <matrix>
+                    <Matrix tx="41.9" ty="66"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="50.1" y="11"/>
+                  </transformationPoint>
+                  <dataBindingXML><![CDATA[<component metaDataFetched='true' schemaUrl='' schemaOperation='' sceneRootLabel='TestSkin' oldCopiedComponentPath='4'>
+</component>
+]]></dataBindingXML>
+                  <parametersAsXML><![CDATA[   <property id="autoSize">
+      <Inspectable name="autoSize" variable="autoSize" category="" verbose="0" defaultValue="none" enumeration="left,center,right,none" type="List"/>
+   </property>
+   <property id="condenseWhite">
+      <Inspectable name="condenseWhite" variable="condenseWhite" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="enabled">
+      <Inspectable name="enabled" variable="enabled" category="" verbose="1" defaultValue="true" type="Boolean"/>
+   </property>
+   <property id="htmlText">
+      <Inspectable name="htmlText" variable="htmlText" category="" verbose="0" defaultValue="" type="String"/>
+   </property>
+   <property id="selectable">
+      <Inspectable name="selectable" variable="selectable" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="text">
+      <Inspectable name="text" variable="text" category="" verbose="0" defaultValue="Label" type="String"/>
+   </property>
+   <property id="visible">
+      <Inspectable name="visible" variable="visible" category="" verbose="1" defaultValue="true" type="Boolean"/>
+   </property>
+   <property id="wordWrap">
+      <Inspectable name="wordWrap" variable="wordWrap" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="9" keyMode="15872">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Tween 1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="215.5" ty="166"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Tween 1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="215.5" ty="166"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="10" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Tween 2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="215.5" ty="166"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Tween 2" selected="true" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="215.5" ty="166"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="11" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Tween 1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="215.5" ty="166"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

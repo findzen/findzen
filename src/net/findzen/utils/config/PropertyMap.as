@@ -1,2 +1,2 @@
-﻿package net.findzen.utils.config{    import net.findzen.mvcs.service.NodeMap;    import net.findzen.mvcs.service.NodeMap;
+﻿package net.findzen.utils.config{    import net.findzen.utils.NodeMap;    import net.findzen.utils.NodeMap;
     public class PropertyMap    {        public static const PROPERTY_NAME:String = 'properties';        public static const NODE_NAME:String = 'property';        public var name:String;        public var nodes:Array;        public function PropertyMap($name:String, $nodes:Array = null)        {            name = $name;            nodes = $nodes || [];        }        public function addNodeMap($map:NodeMap):PropertyMap        {            nodes.push($map);            return this;        }    }}

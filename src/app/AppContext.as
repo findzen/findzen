@@ -12,9 +12,9 @@ package app
     import flash.net.*;
 
     import net.findzen.mvcs.controller.Operator;
-    import net.findzen.mvcs.service.Config;
+    import net.findzen.utils.Config;
     import net.findzen.mvcs.view.*;
-    import net.findzen.mvcs.view.core.*;
+    import net.findzen.display.core.*;
     import net.findzen.utils.Log;
 
     import org.osflash.signals.ISignal;

@@ -1,7 +1,7 @@
 package app.signals
 {
     import org.osflash.signals.Signal;
-    import net.findzen.mvcs.service.Config;
+    import net.findzen.utils.Config;
 
     public class ViewConfigLoaded extends Signal
     {
